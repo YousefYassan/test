@@ -15,9 +15,17 @@ pipeline {
        }
         stage('sleep') {
             steps {
-                sh 'sleep 2' 
+               echo 'sleep 2' 
+            }stage ('dev'){
+	    when{
+                branch "dev-*"
+	    }
+            steps {
+               sh """ cat README.md """
             }
         }
+	}
+
     }
 
     post {
