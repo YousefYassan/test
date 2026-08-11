@@ -10,7 +10,7 @@ pipeline {
         stage('check') {
             steps {
                 // 🟢 سيعمل الآن مباشرة كأمر bash طبيعي بعد إعادة التشغيل
-                  sh 'check out sys dev' 
+                  echo 'check out sys dev' 
             }
        }
         stage('sleep') {
