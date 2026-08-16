@@ -16,7 +16,7 @@ pipeline {
         stage('check') {
             steps{
                     echo 'check out sys dev'
-		    echo "check version ${VERSION}"
+		    echo "check version ${params.VRSION}"
              }
        }
         stage('sleep') {
