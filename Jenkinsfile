@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+     parameters{
+      choice (name:'VERSION' , choices:['1.1.0','1.2.0','1.3.0'],description : '')
+
+     }
+
+
     stages {
         stage('Hello') {
             steps {
@@ -8,10 +14,10 @@ pipeline {
             }
         }
         stage('check') {
-            steps {
-                // 🟢 سيعمل الآن مباشرة كأمر bash طبيعي بعد إعادة التشغيل
-                  echo 'check out sys dev' 
-            }
+            steps{
+                    echo 'check out sys dev'
+		    echo "check version ${VERSION}"
+             }
        }
         stage('sleep') {
             steps {
