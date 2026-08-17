@@ -20,7 +20,18 @@ pipeline {
             }
         }
 
-        stage('end') {
+	stage('redme') {
+	when{
+      branch "main"
+	}
+
+            steps {
+                sh """ cat REDAME.md    """"
+            }
+        }
+
+
+       stage('end') {
             steps {
                 echo 'end of file'
             }
