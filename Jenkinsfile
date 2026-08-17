@@ -26,7 +26,7 @@ pipeline {
 	}
 
             steps {
-                sh """ cat REDAME.md    """"
+                sh """ cat REDAME.md    """
             }
         }
 
