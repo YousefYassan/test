@@ -20,7 +20,9 @@ pipeline {
 
           
             steps {
+				script{
                 gv.buildapp()
+				}
             }
        }
         stage('sleep') {
