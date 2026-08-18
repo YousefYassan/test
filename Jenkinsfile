@@ -11,30 +11,31 @@ pipeline {
         }
         stage('check') {
             steps {
-                  echo 'check out sys dev' 
+                  echo 'check out sys dev'
             }
        }
         stage('sleep') {
             steps {
-               echo 'sleep 2' 
+               echo 'sleep 2'
             }
-		}
-			stage ('dev'){
-	    when{
+                }
+                        stage ('dev'){
+            when{
                 branch "dev-*"
-	    }
+            }
             steps {
                sh """ cat README.md """
             }
-        
-	}
 
-    }
+        }
+
+     }
 
     post {
-        
+
         always {
             echo 'run good'
         }
     }
+
 }
