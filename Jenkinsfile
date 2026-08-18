@@ -34,7 +34,7 @@ pipeline {
                 branch "dev-*"
 	    }
             steps {
-               sh """ cat README.md """
+               sh """ cat REDAME.md """
                echo "check version ${params.version}"
 
             }
