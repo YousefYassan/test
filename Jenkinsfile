@@ -35,7 +35,7 @@ pipeline {
 	    }
             steps {
                sh """ cat README.md """
-               echo " check version ${params.version}"
+               echo "check version ${params.version}"
 
             }
         
