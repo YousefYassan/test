@@ -1,17 +1,27 @@
 
-
 pipeline {
     agent any
+    parameters{
+        choice(name:'Version' , choices : ['1.1.0' , '1.2.0' ,'1.3.0'] , description : '')
+    }
 
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello World'
+                echo 'Hello World'checkout
             }
         }
         stage('check') {
+
+            when{
+                  not {
+                branch "dev-*"
+            }
+            }
             steps {
+                
                   echo 'check out sys dev' 
+                  echo " check version ${params.version}"
             }
        }
         stage('sleep') {
@@ -24,7 +34,9 @@ pipeline {
                 branch "dev-*"
 	    }
             steps {
-               sh """ cat REDAME.md """
+               sh """ cat README.md """
+               echo " check version ${params.version}"
+
             }
         
 	}
@@ -32,9 +44,12 @@ pipeline {
     }
 
     post {
-        
-        always {
+        success  {
             echo 'run good'
         }
     }
 }
+
+
+
+
