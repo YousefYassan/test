@@ -13,15 +13,10 @@ pipeline {
         }
         stage('check') {
 
-            when{
-                  not {
-                branch "dev-*"
-            }
-            }
+          
             steps {
                 
                   echo 'check out sys dev' 
-                  echo " check version ${params.version}"
             }
        }
         stage('sleep') {
@@ -35,6 +30,28 @@ pipeline {
 	    }
             steps {
                sh """ cat REDAME.md """
+               echo "check version ${params.version}"
+
+            }
+        
+	}
+
+		stage ('dep'){
+	    when{
+                branch "dep-*"
+	    }
+            steps {
+               echo "check version ${params.version}"
+				
+
+            }
+        
+	}
+		stage ('maim'){
+	    when{
+                branch "main*"
+	    }
+            steps {
                echo "check version ${params.version}"
 
             }
