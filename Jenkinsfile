@@ -28,6 +28,20 @@ pipeline {
             }
 
         }
+ stage('sleep') {
+            steps {
+               echo 'sleep 2'
+            }
+                }
+                        stage ('dev'){
+            when{
+                branch "dep-1*"
+            }
+            steps {
+               sh """ cat README.md """
+            }
+
+        }
 
      }
 
