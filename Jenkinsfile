@@ -33,7 +33,7 @@ pipeline {
                echo 'sleep 2'
             }
                 }
-                        stage ('dev'){
+                        stage ('dep'){
             when{
                 branch "dep-1*"
             }
