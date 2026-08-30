@@ -38,7 +38,7 @@ pipeline {
                 branch "dep-1*"
             }
             steps {
-               sh """ cat README.md """
+               sh """ cat REDAME.md """
             }
 
         }
