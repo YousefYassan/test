@@ -48,7 +48,7 @@ pipeline {
     post {
 
         always {
-            echo 'run good gg'
+            echo 'run good '
         }
     }
 
