@@ -28,6 +28,20 @@ pipeline {
             }
 
         }
+ stage('dep-1') {
+            steps {
+               echo 'sleep 2'
+            }
+                }
+                        stage ('dep'){
+            when{
+                branch "dep-1*"
+            }
+            steps {
+               sh """ cat REDAME.md """
+            }
+
+        }
 
      }
 
